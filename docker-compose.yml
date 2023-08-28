@@ -16,19 +16,22 @@ services:
   web:
     depends_on:
       - db
-    build: . # This line specifies that the Docker image for the web service should be built using the current directory (.) as the build context. This means that the contents of the current directory on the host machine will be used to build the image.
+    build: .
     # image: my-django-app-image
     ports:
-      - "8000:8000" # This maps port 8000 from the host machine to port 8000 in the container, allowing you to access the running Django application from your web browser.
+      - "8000:8000"
     volumes:
-      - ./app:/app # This maps the current directory on the host machine to the /code directory inside the container. This is commonly done during development to allow changes to the code on the host machine to be immediately reflected in the running container
+      - .:/app # This maps the current directory on the host machine to the /app directory inside the container. This is commonly done during development to allow changes to the code on the host machine to be immediately reflected in the running container
     environment:
-      DJANGO_DB_HOST: db
-      DJANGO_DB_PORT: 5432
-      DJANGO_DB_NAME: sndb
-      DJANGO_DB_USER: snuser
-      DJANGO_DB_PASSWORD: snpassword
-    command: python manage.py runserver 0.0.0.0:8000 # This specifies the command that will be executed when the web container starts. It's running the Django development server using the manage.py script and binding it to 0.0.0.0:8000 so it's accessible externally.
+      - POSTGRES_NAME=sndb
+      - POSTGRES_USER=snuser
+      - POSTGRES_PASSWORD=snpassword
+    #   DJANGO_DB_HOST: db
+    #   DJANGO_DB_PORT: 5432
+    #   DJANGO_DB_NAME: sndb
+    #   DJANGO_DB_USER: snuser
+    #   DJANGO_DB_PASSWORD: snpassword
+    command: python manage.py runserver 0.0.0.0:8000
 
-volumes:
-  postgres_data
+# volumes:
+#   postgres_data
