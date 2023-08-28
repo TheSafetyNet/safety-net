@@ -1,5 +1,19 @@
-version: '3'
+version: '3.9'
+name: safetynet
+
 services:
+  
+  # PostgreSQL database
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: sndb
+      POSTGRES_USER: snuser
+      POSTGRES_PASSWORD: snpassword
+
   web:
     image: my-django-app-image
     ports:
@@ -14,15 +28,6 @@ services:
       DJANGO_DB_NAME: mydb
       DJANGO_DB_USER: myuser
       DJANGO_DB_PASSWORD: mypassword
-
-  db:
-    image: postgres:13
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: mydb
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
 
 volumes:
   postgres_data
