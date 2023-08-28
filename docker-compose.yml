@@ -7,7 +7,7 @@ services:
     image: postgres
     restart: always
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./sndb/data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: sndb
       POSTGRES_USER: snuser
@@ -25,9 +25,9 @@ services:
     environment:
       DJANGO_DB_HOST: db
       DJANGO_DB_PORT: 5432
-      DJANGO_DB_NAME: mydb
-      DJANGO_DB_USER: myuser
-      DJANGO_DB_PASSWORD: mypassword
+      DJANGO_DB_NAME: sndb
+      DJANGO_DB_USER: snuser
+      DJANGO_DB_PASSWORD: snpassword
     command: python manage.py runserver 0.0.0.0:8000 # This specifies the command that will be executed when the web container starts. It's running the Django development server using the manage.py script and binding it to 0.0.0.0:8000 so it's accessible externally.
 
 volumes:
