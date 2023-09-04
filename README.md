@@ -3,6 +3,10 @@
 This project serves as a wrapper for all related services.
 
 ## GCP Cloud Run
+### Deploy to Cloud Run
+`gcloud builds submit --region=us-east-1 --config cloudbuild.yaml`
+
+### Other Commands
 ```
 PROJECT_ID=$(gcloud config list --format='value(core.project)')
 PROJECT_NUMBER=$(gcloud projects describe safety-net-398016 --format='value(projectNumber)')
