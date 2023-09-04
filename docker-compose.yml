@@ -7,7 +7,7 @@ services:
     image: postgres
     restart: always
     volumes:
-      - ./sndb/data:/var/lib/postgresql/data
+      - ./sndb_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: sndb
       POSTGRES_USER: snuser
@@ -33,5 +33,5 @@ services:
     #   DJANGO_DB_PASSWORD: snpassword
     command: python manage.py runserver 0.0.0.0:8000
 
-# volumes:
-#   postgres_data
+volumes:
+  sndb_data
