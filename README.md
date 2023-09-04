@@ -6,6 +6,9 @@ This project serves as a wrapper for all related services.
 ### Deploy to Cloud Run
 `gcloud builds submit --region=us-east-1 --config cloudbuild.yaml`
 
+### Enable Cloud Run APIs
+`gcloud services enable run.googleapis.com --project=safety-net-398016`
+
 ### Other Commands
 ```
 PROJECT_ID=$(gcloud config list --format='value(core.project)')
