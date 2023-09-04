@@ -14,3 +14,6 @@ Run docker compose to start the containerized services:
 1. `sudo docker compose -f ../docker-compose.yml --remove-orphans run web django-admin startproject sndjango .`
 1. update settings.py
 1. `docker compose up`
+1. `manage.py migrate`
+1. `python manage.py createsuperuser`
+python manage.py createsuperuser --username=asif --email=asifhazrat@gmail.com
