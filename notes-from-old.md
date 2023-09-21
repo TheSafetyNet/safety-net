@@ -1,5 +1,6 @@
 ![image](https://github.com/TheSafetyNet/safety-net/assets/8891185/09e594c6-e7ef-4109-b4cb-b384d77ae9a3)
 
+![image](https://github.com/TheSafetyNet/safety-net/assets/8891185/84dbb2e1-e18a-407f-b0bb-614428ec7fb7)
 
 # AgoraPolis
 An open marketplace for security.
